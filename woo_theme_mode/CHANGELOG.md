@@ -12,4 +12,8 @@
 
 ## 0.0.4  
 
-* TODO: ajout des données pubspec.yaml
+* TODO: ajout des données pubspec.yaml  
+
+## 0.0.5  
+
+* TODO: ajout des proprieter themeData
