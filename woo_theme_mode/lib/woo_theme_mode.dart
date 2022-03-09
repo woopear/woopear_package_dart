@@ -16,11 +16,20 @@ class WooTheme {
   }) {
     return ThemeData(
       scaffoldBackgroundColor: background,
-      colorScheme: ColorScheme.fromSeed(
-        seedColor: Colors.yellow,
+      colorScheme: ColorScheme(
+        brightness: Brightness.dark,
         primary: primary,
+        onPrimary: primary,
         secondary: secondary,
+        onSecondary: secondary,
+        error: Colors.red,
+        onError: Colors.red,
+        errorContainer: Colors.red,
+        onErrorContainer: Colors.red,
         background: background,
+        onBackground: background,
+        surface: background,
+        onSurface: background,
       ),
     );
   }
@@ -32,11 +41,20 @@ class WooTheme {
   }) {
     return ThemeData(
       scaffoldBackgroundColor: background,
-      colorScheme: ColorScheme.fromSeed(
-        seedColor: const Color.fromARGB(255, 0, 255, 242),
+      colorScheme: ColorScheme(
+        brightness: Brightness.dark,
         primary: primary,
+        onPrimary: primary,
         secondary: secondary,
+        onSecondary: secondary,
+        error: Colors.red,
+        onError: Colors.red,
+        errorContainer: Colors.red,
+        onErrorContainer: Colors.red,
         background: background,
+        onBackground: background,
+        surface: background,
+        onSurface: background,
       ),
     );
   }
