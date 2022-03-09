@@ -9,7 +9,7 @@ class WooTheme {
 
   WooTheme(this.primary, this.secondary, this.background);
 
-  ThemeData modeDark() {
+  static ThemeData modeDark(Color? primary, Color? secondary, Color? background) {
     return ThemeData(
       scaffoldBackgroundColor: background ?? Colors.grey.shade900,
       colorScheme: ColorScheme.dark(
@@ -19,7 +19,7 @@ class WooTheme {
     );
   }
 
-  ThemeData modeClair() {
+  static ThemeData modeClair(Color? primary, Color? secondary, Color? background) {
     return ThemeData(
       scaffoldBackgroundColor: background ?? Colors.white,
       colorScheme: ColorScheme.light(

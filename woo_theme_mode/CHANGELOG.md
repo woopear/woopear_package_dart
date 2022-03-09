@@ -20,4 +20,8 @@
 
 ## 0.0.6  
 
-* TODO: ajout des proprieter SchemeColor
+* TODO: ajout des proprieter SchemeColor  
+
+## 0.0.7  
+
+* TODO: ajout des argument dans les fonctions static wootheme
