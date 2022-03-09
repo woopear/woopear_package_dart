@@ -14,23 +14,23 @@ class WooTheme {
     Color secondary = Colors.purple,
     Color background = Colors.white,
   }) {
-    return ThemeData(
-      scaffoldBackgroundColor: background,
+    ThemeData base = ThemeData.dark();
+    return base.copyWith(
       primaryColor: primary,
       colorScheme: ColorScheme.dark(secondary: secondary),
       backgroundColor: background,
     );
   }
 
-  static ThemeData modeClair({
+  static ThemeData modeClaire({
     Color primary = Colors.blue,
     Color secondary = Colors.purple,
     Color background = Colors.white,
   }) {
-    return ThemeData(
-      scaffoldBackgroundColor: background,
+    ThemeData base = ThemeData.light();
+    return base.copyWith(
       primaryColor: primary,
-      colorScheme: ColorScheme.light(secondary: secondary),
+      colorScheme: ColorScheme.dark(secondary: secondary),
       backgroundColor: background,
     );
   }

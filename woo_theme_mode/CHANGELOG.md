@@ -41,3 +41,7 @@
 ## 0.0.11  
 
 * TODO: affectation nouvelle couleurs
+
+## 0.0.12  
+
+* TODO: affectation nouvelle couleurs
