@@ -12,29 +12,29 @@ class WooTheme {
   static ThemeData modeDark({
     Color primary = Colors.blue,
     Color secondary = Colors.purple,
-    Color background = Colors.white,
+    Color background = Colors.grey,
   }) {
-    ThemeData base = ThemeData.dark();
-    return base.copyWith(
-        primaryColor: primary,
-        colorScheme: ColorScheme.dark(
-          secondary: secondary,
-          background: background,
-        ));
+    return ThemeData(
+      scaffoldBackgroundColor: background,
+      primaryColor: primary,
+      primaryColorDark: primary,
+      primaryColorLight: primary,
+      colorScheme: const ColorScheme.dark(),
+    );
   }
 
-  static ThemeData modeClaire({
+  static ThemeData modeClair({
     Color primary = Colors.blue,
     Color secondary = Colors.purple,
     Color background = Colors.white,
   }) {
-    ThemeData base = ThemeData.light();
-    return base.copyWith(
-        primaryColor: primary,
-        colorScheme: ColorScheme.dark(
-          secondary: secondary,
-          background: background,
-        ));
+    return ThemeData(
+      scaffoldBackgroundColor: background,
+      primaryColor: primary,
+      primaryColorDark: primary,
+      primaryColorLight: primary,
+      colorScheme: const ColorScheme.light(),
+    );
   }
 }
 
