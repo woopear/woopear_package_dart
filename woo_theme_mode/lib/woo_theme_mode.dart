@@ -16,10 +16,11 @@ class WooTheme {
   }) {
     ThemeData base = ThemeData.dark();
     return base.copyWith(
-      primaryColor: primary,
-      colorScheme: ColorScheme.dark(secondary: secondary),
-      backgroundColor: background,
-    );
+        primaryColor: primary,
+        colorScheme: ColorScheme.dark(
+          secondary: secondary,
+          background: background,
+        ));
   }
 
   static ThemeData modeClaire({
@@ -29,10 +30,11 @@ class WooTheme {
   }) {
     ThemeData base = ThemeData.light();
     return base.copyWith(
-      primaryColor: primary,
-      colorScheme: ColorScheme.dark(secondary: secondary),
-      backgroundColor: background,
-    );
+        primaryColor: primary,
+        colorScheme: ColorScheme.dark(
+          secondary: secondary,
+          background: background,
+        ));
   }
 }
 
