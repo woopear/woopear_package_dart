@@ -3,24 +3,29 @@ library woo_theme_mode;
 import 'package:flutter/material.dart';
 
 class WooTheme {
-  Color? primaryColor;
+  Color? primary;
+  Color? secondary;
   Color? background;
 
-  WooTheme(this.primaryColor, this.background);
+  WooTheme(this.primary, this.secondary, this.background);
 
   ThemeData modeDark() {
     return ThemeData(
       scaffoldBackgroundColor: background ?? Colors.grey.shade900,
-      primaryColor: primaryColor ?? Colors.blue,
-      colorScheme: const ColorScheme.dark(),
+      colorScheme: ColorScheme.dark(
+        primary: primary ?? Colors.blue,
+        secondary: secondary ?? Colors.purple,
+      ),
     );
   }
 
   ThemeData modeClair() {
     return ThemeData(
       scaffoldBackgroundColor: background ?? Colors.white,
-      primaryColor: primaryColor ?? Colors.blue,
-      colorScheme: const ColorScheme.light(),
+      colorScheme: ColorScheme.light(
+        primary: primary ?? Colors.blue,
+        secondary: secondary ?? Colors.purple,
+      ),
     );
   }
 }

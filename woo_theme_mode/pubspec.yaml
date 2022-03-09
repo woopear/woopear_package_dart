@@ -1,6 +1,6 @@
 name: woo_theme_mode
 description: gestion du mode dark ou claire du theme de l'application
-version: 0.0.5
+version: 0.0.6
 homepage: https://woopear.fr/
 repository: https://github.com/woopear/woopear_package_dart/tree/main/woo_theme_mode
 

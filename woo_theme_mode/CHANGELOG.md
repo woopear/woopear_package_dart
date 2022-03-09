@@ -17,3 +17,7 @@
 ## 0.0.5  
 
 * TODO: ajout des proprieter themeData
+
+## 0.0.6  
+
+* TODO: ajout des proprieter SchemeColor
