@@ -25,3 +25,7 @@
 ## 0.0.7  
 
 * TODO: ajout des argument dans les fonctions static wootheme
+
+## 0.0.8  
+
+* TODO: assign valeur par defaut fonction static

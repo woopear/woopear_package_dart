@@ -9,22 +9,30 @@ class WooTheme {
 
   WooTheme(this.primary, this.secondary, this.background);
 
-  static ThemeData modeDark(Color? primary, Color? secondary, Color? background) {
+  static ThemeData modeDark({
+    Color primary = Colors.blue,
+    Color secondary = Colors.purple,
+    Color background = Colors.white,
+  }) {
     return ThemeData(
-      scaffoldBackgroundColor: background ?? Colors.grey.shade900,
+      scaffoldBackgroundColor: background,
       colorScheme: ColorScheme.dark(
-        primary: primary ?? Colors.blue,
-        secondary: secondary ?? Colors.purple,
+        primary: primary,
+        secondary: secondary,
       ),
     );
   }
 
-  static ThemeData modeClair(Color? primary, Color? secondary, Color? background) {
+  static ThemeData modeClair({
+    Color primary = Colors.blue,
+    Color secondary = Colors.purple,
+    Color background = Colors.white,
+  }) {
     return ThemeData(
-      scaffoldBackgroundColor: background ?? Colors.white,
+      scaffoldBackgroundColor: background,
       colorScheme: ColorScheme.light(
-        primary: primary ?? Colors.blue,
-        secondary: secondary ?? Colors.purple,
+        primary: primary,
+        secondary: secondary,
       ),
     );
   }
