@@ -37,3 +37,7 @@
 ## 0.0.10  
 
 * TODO: affectation par instance de class ShemeColor
+
+## 0.0.11  
+
+* TODO: affectation nouvelle couleurs
