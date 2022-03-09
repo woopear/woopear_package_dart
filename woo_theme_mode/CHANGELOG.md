@@ -28,4 +28,8 @@
 
 ## 0.0.8  
 
-* TODO: assign valeur par defaut fonction static
+* TODO: assign valeur par defaut fonction static  
+
+## 0.0.9  
+
+* TODO: changement des couleurs

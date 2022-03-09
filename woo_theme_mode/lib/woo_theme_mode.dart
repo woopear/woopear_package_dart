@@ -16,9 +16,11 @@ class WooTheme {
   }) {
     return ThemeData(
       scaffoldBackgroundColor: background,
-      colorScheme: ColorScheme.dark(
+      colorScheme: ColorScheme.fromSeed(
+        seedColor: Colors.yellow,
         primary: primary,
         secondary: secondary,
+        background: background,
       ),
     );
   }
@@ -30,9 +32,11 @@ class WooTheme {
   }) {
     return ThemeData(
       scaffoldBackgroundColor: background,
-      colorScheme: ColorScheme.light(
+      colorScheme: ColorScheme.fromSeed(
+        seedColor: const Color.fromARGB(255, 0, 255, 242),
         primary: primary,
         secondary: secondary,
+        background: background,
       ),
     );
   }
