@@ -53,3 +53,19 @@
 ## 0.0.14 
 
 * TODO: affectation nouvelle couleurs
+
+## 0.0.15 
+
+* TODO: affectation nouvelle couleurs
+
+## 0.0.16 
+
+* TODO: affectation nouvelle couleurs
+
+## 0.0.17 
+
+* TODO: affectation nouvelle couleurs
+
+## 0.0.18 
+
+* TODO: nouvelle fonctionnalité, version stable
