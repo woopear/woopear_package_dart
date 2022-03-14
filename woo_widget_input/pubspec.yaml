@@ -1,7 +1,8 @@
 name: woo_widget_input
-description: A new Flutter package project.
+description: input customisable woopear.
+repository: https://github.com/woopear/woopear_package_dart/tree/main/woo_widget_input
 version: 0.0.1
-homepage:
+homepage: https://woopear.fr/
 
 environment:
   sdk: ">=2.16.1 <3.0.0"
