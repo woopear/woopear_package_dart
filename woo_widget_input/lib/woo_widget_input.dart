@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 class InputCustom extends StatefulWidget {
   String? Function(String?)? validator;
   dynamic Function(dynamic)? onChange;
+  dynamic Function(dynamic)? sufixIconFunc;
   String? labelText;
   String? initialValue;
   Widget? label;
@@ -72,6 +73,7 @@ class InputCustom extends StatefulWidget {
 class _InputCustomState extends State<InputCustom> {
   bool _isSecret = true;
 
+  /// voir/cacher le mot de passe
   void seePassword() {
     _isSecret = !_isSecret;
     widget.obscureText = !widget.obscureText;
@@ -82,15 +84,21 @@ class _InputCustomState extends State<InputCustom> {
     return Container(
       padding: widget.padding,
       margin: widget.margin,
+      // input
       child: TextFormField(
         initialValue: widget.initialValue,
-        validator: (value) => widget.validator!(value),
-        onChanged: (value) => widget.onChange!(value),
+        validator: (value) =>
+            widget.validator != null ? widget.validator!(value) : null,
+        onChanged: (value) =>
+            widget.onChange != null ? widget.onChange!(value) : null,
         obscureText: widget.obscureText,
         decoration: const InputDecoration().copyWith(
           labelText: widget.labelText,
           label: widget.label,
           prefixIcon: widget.prefixIcon,
+          /// si password on affiche l'oeil  
+          /// sinon si sufixIcon existe on afffiche l'icon  
+          /// sinon on affiche rien
           suffixIcon: widget.password
               ? InkWell(
                   onTap: () => {
@@ -102,14 +110,16 @@ class _InputCustomState extends State<InputCustom> {
                     !_isSecret ? Icons.visibility : Icons.visibility_off,
                   ),
                 )
-              : InkWell(
-                  onTap: () => {
-                    setState(() => {
-                          widget.funcSufixIcon!(),
-                        }),
-                  },
-                  child: widget.sufixIcon,
-                ),
+              : widget.sufixIcon != null
+                  ? InkWell(
+                      onTap: () => {
+                        setState(() => {
+                              widget.funcSufixIcon,
+                            }),
+                      },
+                      child: widget.sufixIcon,
+                    )
+                  : null,
         ),
       ),
     );
