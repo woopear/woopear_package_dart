@@ -14,9 +14,13 @@ class InputCustom extends StatefulWidget {
   Widget? prefixIcon;
   Widget? sufixIcon;
   dynamic Function()? funcSufixIcon;
+  EdgeInsetsGeometry? margin;
+  EdgeInsetsGeometry? padding;
 
   InputCustom({
     Key? key,
+    this.margin,
+    this.padding,
     this.validator,
     this.onChange,
     this.labelText,
@@ -31,6 +35,8 @@ class InputCustom extends StatefulWidget {
 
   InputCustom.password({
     Key? key,
+    this.margin,
+    this.padding,
     this.validator,
     this.onChange,
     this.labelText,
@@ -45,6 +51,8 @@ class InputCustom extends StatefulWidget {
 
   InputCustom.email({
     Key? key,
+    this.margin,
+    this.padding,
     this.validator,
     this.onChange,
     this.labelText,
@@ -72,6 +80,8 @@ class _InputCustomState extends State<InputCustom> {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: widget.padding,
+      margin: widget.margin,
       child: TextFormField(
         initialValue: widget.initialValue,
         validator: (value) => widget.validator!(value),
