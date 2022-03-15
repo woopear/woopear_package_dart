@@ -14,12 +14,11 @@ class InputConnexion extends StatefulWidget {
   bool emailpassword = false;
   bool emailemail = false;
   Widget? emailprefixIcon;
-  Widget? emailsufixIcon;
-  dynamic Function()? emailfuncSufixIcon;
   EdgeInsetsGeometry? emailmargin;
   EdgeInsetsGeometry? emailpadding;
   String? Function(String?)? pwsvalidator;
   dynamic Function(dynamic)? pwsonChange;
+  dynamic Function(dynamic)? resultForm;
   String? pwslabelText;
   String? pwsinitialValue;
   String? pwsmessageValidate;
@@ -28,10 +27,9 @@ class InputConnexion extends StatefulWidget {
   bool pwspassword = false;
   bool pwsemail = false;
   Widget? pwsprefixIcon;
-  Widget? pwssufixIcon;
-  dynamic Function()? pwsfuncSufixIcon;
   EdgeInsetsGeometry? pwsmargin;
   EdgeInsetsGeometry? pwspadding;
+  String textButton = 'Se connecter';
 
   InputConnexion({
     Key? key,
@@ -44,8 +42,6 @@ class InputConnexion extends StatefulWidget {
     this.emaillabel,
     this.emailobscureText = false,
     this.emailprefixIcon,
-    this.emailsufixIcon,
-    this.emailfuncSufixIcon,
     this.emailpassword = false,
     this.emailmessageValidate,
     this.pwsmargin,
@@ -57,10 +53,10 @@ class InputConnexion extends StatefulWidget {
     this.pwslabel,
     this.pwsobscureText = false,
     this.pwsprefixIcon,
-    this.pwssufixIcon,
-    this.pwsfuncSufixIcon,
     this.pwspassword = false,
     this.pwsmessageValidate,
+    this.resultForm,
+    this.textButton = 'Se connecter',
   }) : super(key: key);
 
   @override
@@ -71,16 +67,35 @@ class _InputConnexionState extends State<InputConnexion> {
   final RegExp emailRegex = RegExp(r"[a-z0-9\._-]+@[a-z0-9\._-]+\.[a-z]+");
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
+  String? inputEmailValue;
+  String? inputPasswordValue;
+
+  @override
+  void dispose() {
+    inputEmailValue = widget.emailinitialValue;
+    inputPasswordValue = widget.pwsmessageValidate;
+    super.dispose();
+  }
+
   /// valider le contenue du input email
   String? validateEmail(String? value) {
-    return value!.isEmpty || !emailRegex.hasMatch(value)
-        ? widget.emailmessageValidate
-        : null;
+    if (value == null || value.isEmpty || !emailRegex.hasMatch(value)) {
+      return widget.emailmessageValidate;
+    }
+    return null;
   }
 
   /// valider le contenue du input password
-  String? validatePssword(String? value) {
-    return value!.length < 6 ? '6 caractères mini' : null;
+  String? validatePassword(String? value) {
+    return value!.length < 6 ? widget.pwsmessageValidate : null;
+  }
+
+  /// creation de l'objet de retour du formulaire
+  Map<String, dynamic> createResultForm() {
+    return {
+      'email': inputEmailValue,
+      'password': inputPasswordValue,
+    };
   }
 
   @override
@@ -90,18 +105,41 @@ class _InputConnexionState extends State<InputConnexion> {
       child: Column(
         children: [
           InputCustom.email(
+            initialValue: inputEmailValue,
             labelText: widget.emaillabelText,
+            label: widget.emaillabel,
+            margin: widget.emailmargin,
+            padding: widget.emailpadding,
+            prefixIcon: widget.emailprefixIcon,
             validator: (value) => validateEmail(value),
+            onChange: (value) {
+              setState(() => {
+                    inputEmailValue = value,
+                  });
+            },
           ),
           InputCustom.password(
+            initialValue: inputPasswordValue,
             labelText: widget.pwslabelText,
-            validator: (value) => validatePssword(value),
+            label: widget.emaillabel,
+            margin: widget.emailmargin,
+            padding: widget.emailpadding,
+            prefixIcon: widget.emailprefixIcon,
+            validator: (value) => validatePassword(value),
+            onChange: (value) {
+              setState(() => {
+                    inputPasswordValue = value,
+                  });
+            },
           ),
           ElevatedButton(
-            onPressed: () => {
-              print(_formKey),
+            onPressed: () {
+              if (_formKey.currentState!.validate()) {
+                final formValue = createResultForm();
+                widget.resultForm!(formValue);
+              }
             },
-            child: const Text('Valider'),
+            child: Text(widget.textButton),
           ),
         ],
       ),

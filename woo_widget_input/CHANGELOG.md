@@ -29,3 +29,15 @@
 ## 0.0.8
 
 * TODO: creation logic sufixIcon, creation return value input
+
+## 0.0.9
+
+* TODO: ajout sateState
+
+## 0.0.10
+
+* TODO: update validator
+
+## 0.0.11
+
+* TODO: ajout commentaire

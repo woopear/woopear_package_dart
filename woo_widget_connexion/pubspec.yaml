@@ -1,7 +1,7 @@
 name: woo_widget_connexion
 description: fomrulaire de connexion pré-construit, plus qu'a connecter avec une API.
 repository: https://github.com/woopear/woopear_package_dart/tree/main/woo_widget_connexion
-version: 0.0.1
+version: 0.0.9
 homepage: https://woopear.fr/
 
 environment:
@@ -11,7 +11,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  woo_widget_input: ^0.0.2
+  woo_widget_input: ^0.0.11
 
 dev_dependencies:
   flutter_test:

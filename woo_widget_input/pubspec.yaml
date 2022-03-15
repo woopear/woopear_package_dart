@@ -1,7 +1,7 @@
 name: woo_widget_input
 description: input customisable woopear.
 repository: https://github.com/woopear/woopear_package_dart/tree/main/woo_widget_input
-version: 0.0.8
+version: 0.0.11
 homepage: https://woopear.fr/
 
 environment:

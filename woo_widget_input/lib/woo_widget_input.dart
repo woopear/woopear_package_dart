@@ -87,8 +87,12 @@ class _InputCustomState extends State<InputCustom> {
       // input
       child: TextFormField(
         initialValue: widget.initialValue,
-        validator: (value) =>
-            widget.validator != null ? widget.validator!(value) : null,
+        validator: (value) {
+          if (widget.validator != null) {
+            return widget.validator!(value);
+          }
+          return null;
+        },
         onChanged: (value) =>
             widget.onChange != null ? widget.onChange!(value) : null,
         obscureText: widget.obscureText,
@@ -96,8 +100,8 @@ class _InputCustomState extends State<InputCustom> {
           labelText: widget.labelText,
           label: widget.label,
           prefixIcon: widget.prefixIcon,
-          /// si password on affiche l'oeil  
-          /// sinon si sufixIcon existe on afffiche l'icon  
+          /// si password on affiche l'oeil
+          /// sinon si sufixIcon existe on afffiche l'icon
           /// sinon on affiche rien
           suffixIcon: widget.password
               ? InkWell(
