@@ -12,7 +12,6 @@ class InputConnexion extends StatefulWidget {
   Widget? emaillabel;
   bool emailobscureText;
   bool emailpassword = false;
-  bool emailemail = false;
   Widget? emailprefixIcon;
   EdgeInsetsGeometry? emailmargin;
   EdgeInsetsGeometry? emailpadding;
@@ -24,7 +23,6 @@ class InputConnexion extends StatefulWidget {
   String? pwsmessageValidate;
   Widget? pwslabel;
   bool pwsobscureText;
-  bool pwspassword = false;
   bool pwsemail = false;
   Widget? pwsprefixIcon;
   EdgeInsetsGeometry? pwsmargin;
@@ -53,7 +51,6 @@ class InputConnexion extends StatefulWidget {
     this.pwslabel,
     this.pwsobscureText = false,
     this.pwsprefixIcon,
-    this.pwspassword = false,
     this.pwsmessageValidate,
     this.resultForm,
     this.textButton = 'Se connecter',
@@ -91,11 +88,18 @@ class _InputConnexionState extends State<InputConnexion> {
   }
 
   /// creation de l'objet de retour du formulaire
-  Map<String, dynamic> createResultForm() {
+  Map<String, dynamic>? createResultForm() {
+    if (inputEmailValue == null ||
+        inputEmailValue!.isEmpty ||
+        inputPasswordValue == null ||
+        inputPasswordValue!.isEmpty) {
+      return null;
+    }else{
     return {
       'email': inputEmailValue,
       'password': inputPasswordValue,
     };
+    }
   }
 
   @override
@@ -122,8 +126,8 @@ class _InputConnexionState extends State<InputConnexion> {
             initialValue: inputPasswordValue,
             labelText: widget.pwslabelText,
             label: widget.emaillabel,
-            margin: widget.emailmargin,
-            padding: widget.emailpadding,
+            margin: widget.pwsmargin,
+            padding: widget.pwspadding,
             prefixIcon: widget.emailprefixIcon,
             validator: (value) => validatePassword(value),
             onChange: (value) {

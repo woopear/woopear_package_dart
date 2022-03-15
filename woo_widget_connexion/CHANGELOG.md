@@ -33,3 +33,11 @@
 ## 0.0.9
 
 * TODO: rectification validator
+
+## 0.0.10
+
+* TODO: return valeur null 
+
+## 0.0.11
+
+* TODO: rectification nom de variable 
