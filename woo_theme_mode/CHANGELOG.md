@@ -69,3 +69,7 @@
 ## 0.0.18 
 
 * TODO: nouvelle fonctionnalité, version stable
+
+## 1.0.0   
+
+* TODO: nouvelle fonctionnalité, version stable

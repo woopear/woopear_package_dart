@@ -1,10 +1,10 @@
 library woo_theme_mode;
 
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class WooTheme {
-  static ThemeData modeDark(
-    {
+  static ThemeData modeDark({
     // principal
     Color? primary,
     Color? secondary,
@@ -211,8 +211,7 @@ class WooTheme {
     );
   }
 
-  static ThemeData modeClair(
-    {
+  static ThemeData modeClair({
     // principal
     Color? primary,
     Color? secondary,
@@ -420,7 +419,7 @@ class WooTheme {
   }
 }
 
-class WooThemeProvider extends ChangeNotifier {
+class WooThemeState extends ChangeNotifier {
   ThemeMode themeMode = ThemeMode.system;
 
   bool get isDarkMode => themeMode == ThemeMode.dark;
@@ -429,5 +428,48 @@ class WooThemeProvider extends ChangeNotifier {
   void changeTheme(bool value) {
     themeMode = value ? ThemeMode.dark : ThemeMode.light;
     notifyListeners();
+  }
+}
+
+/// provider class wooThemeState
+final themeChange = ChangeNotifierProvider((ref) => WooThemeState());
+
+/// btn switch pour activer désactiver le mode dark
+class WooThemeSwitch extends ConsumerStatefulWidget {
+  final Icon iconTrue;
+  final Icon iconFalse;
+
+  const WooThemeSwitch({Key? key, required this.iconFalse, required this.iconTrue})
+      : super(key: key);
+
+  @override
+  ConsumerState<ConsumerStatefulWidget> createState() => _WooThemeSwitchState();
+}
+
+class _WooThemeSwitchState extends ConsumerState<WooThemeSwitch> {
+  Icon? _iconTrue;
+  Icon? _iconFalse;
+
+  @override
+  void initState() {
+    super.initState();
+    _iconTrue = widget.iconTrue;
+    _iconFalse = widget.iconFalse;
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    /// on recupere si modedark est activer ou pas
+    final trueDark = ref.watch(themeChange).isDarkMode;
+
+    return IconButton(
+      onPressed: () => ref.watch(themeChange).changeTheme(!trueDark),
+      /// si il y a le mode dark ou si il y a le mode dark system
+      /// on affiche un icontrue sinon on affiche iconfalse
+      icon: ref.watch(themeChange).themeMode == ThemeMode.light ||
+              MediaQuery.platformBrightnessOf(context) == Brightness.light
+          ? _iconTrue!
+          : _iconFalse!,
+    );
   }
 }

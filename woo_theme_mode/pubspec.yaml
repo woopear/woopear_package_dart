@@ -1,6 +1,6 @@
 name: woo_theme_mode
 description: gestion du mode dark ou claire du theme de l'application
-version: 0.0.18
+version: 1.0.0
 homepage: https://woopear.fr/
 repository: https://github.com/woopear/woopear_package_dart/tree/main/woo_theme_mode
 
@@ -11,6 +11,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_riverpod: ^1.0.3
 
 dev_dependencies:
   flutter_test:
