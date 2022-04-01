@@ -432,7 +432,7 @@ class WooThemeState extends ChangeNotifier {
 }
 
 /// provider class wooThemeState
-final themeChange = ChangeNotifierProvider((ref) => WooThemeState());
+final wooThemeChange = ChangeNotifierProvider((ref) => WooThemeState());
 
 /// btn switch pour activer désactiver le mode dark
 class WooThemeSwitch extends ConsumerStatefulWidget {
@@ -460,13 +460,13 @@ class _WooThemeSwitchState extends ConsumerState<WooThemeSwitch> {
   @override
   Widget build(BuildContext context) {
     /// on recupere si modedark est activer ou pas
-    final trueDark = ref.watch(themeChange).isDarkMode;
+    final trueDark = ref.watch(wooThemeChange).isDarkMode;
 
     return IconButton(
-      onPressed: () => ref.watch(themeChange).changeTheme(!trueDark),
+      onPressed: () => ref.watch(wooThemeChange).changeTheme(!trueDark),
       /// si il y a le mode dark ou si il y a le mode dark system
       /// on affiche un icontrue sinon on affiche iconfalse
-      icon: ref.watch(themeChange).themeMode == ThemeMode.light ||
+      icon: ref.watch(wooThemeChange).themeMode == ThemeMode.light ||
               MediaQuery.platformBrightnessOf(context) == Brightness.light
           ? _iconTrue!
           : _iconFalse!,

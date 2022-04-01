@@ -70,6 +70,6 @@
 
 * TODO: nouvelle fonctionnalité, version stable
 
-## 1.0.0   
+## 1.0.1   
 
 * TODO: nouvelle fonctionnalité, version stable
